@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Trace: s-20260224-204933-367a</title>
+    <style>
+        body {
+            font-family: 'Consolas', 'Monaco', monospace;
+            padding: 20px;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            margin: 0;
+        }
+        .header {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0 0 10px 0;
+            color: #4af626;
+        }
+        .stats-panel {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .stat-item {
+            background: #1a1a1a;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #4af626;
+        }
+        .stat-label {
+            display: block;
+            color: #888;
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+        .stat-value {
+            display: block;
+            color: #e0e0e0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .tool-stats {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .tool-stats th, .tool-stats td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+        .tool-stats th {
+            color: #4af626;
+        }
+        .error-list {
+            list-style: none;
+            padding: 0;
+        }
+        .error-list li {
+            background: #331111;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border-left: 3px solid #ff4444;
+        }
+        .events-container {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        .event {
+            border: 1px solid #333;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            background: #1a1a1a;
+        }
+        .event-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .step {
+            color: #888;
+            font-size: 12px;
+        }
+        .timestamp {
+            color: #666;
+            font-size: 11px;
+        }
+        .event-type {
+            color: #4af626;
+            font-weight: bold;
+        }
+        .expandable {
+            cursor: pointer;
+            color: #4af626;
+            user-select: none;
+        }
+        .expandable:hover {
+            color: #6fff48;
+        }
+        .details {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background: #0d0d0d;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        .details pre {
+            margin: 0;
+            color: #e0e0e0;
+        }
+        .tool-call {
+            border-left: 3px solid #4af626;
+        }
+        .tool-result {
+            border-left: 3px solid #ffd700;
+        }
+        .error {
+            border-left: 3px solid #ff4444;
+            background: #2a1a1a;
+        }
+        .model-output {
+            border-left: 3px solid #00bfff;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🔍 Trace Session: s-20260224-204933-367a</h1>
+        <p>生成时间: 2026-02-24 20:49:33</p>
+    </div>
+
+    <div class="events-container">
+        <h2>📋 事件列表</h2>
+
+        <div class="event">
+            <div class="event-header">
+                <span class="step">Step -</span>
+                <span class="timestamp">2026-02-24T20:49:33.482894</span>
+                <span class="event-type">session_start</span>
+                <span class="expandable" onclick="toggleDetails('details-1')">[▼ 详情]</span>
+            </div>
+            <div id="details-1" class="details">
+                <pre>{
+  "agent_name": "FinanceAgent",
+  "agent_type": "SimpleAgent"
+}</pre>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="event-header">
+                <span class="step">Step -</span>
+                <span class="timestamp">2026-02-24T20:49:33.483062</span>
+                <span class="event-type">message_written</span>
+                <span class="expandable" onclick="toggleDetails('details-2')">[▼ 详情]</span>
+            </div>
+            <div id="details-2" class="details">
+                <pre>{
+  "role": "user",
+  "content": "\n        你是理财专家。本月收入15777.82，支出2170.25。\n        请严格按 JSON 格式分析，包含以下三个 key：\n        1. analysis_result: 收支盈亏总结。\n        2. habit_report: 消费习惯深度分析。\n        3. tasks: 包含7个具体理财任务的列表。\n        输出示例：{\"analysis_result\": \"...\", \"habit_report\": \"...\", \"tasks\": [\"...\"]}\n        "
+}</pre>
+            </div>
+        </div>
+
+        <div class="event">
+            <div class="event-header">
+                <span class="step">Step -</span>
+                <span class="timestamp">2026-02-24T20:49:42.052394</span>
+                <span class="event-type">session_end</span>
+                <span class="expandable" onclick="toggleDetails('details-3')">[▼ 详情]</span>
+            </div>
+            <div id="details-3" class="details">
+                <pre>{
+  "duration": 8.570207,
+  "final_answer": "```json\n{\n  \"analysis_result\": \"本月财务状况良好，收入远大于支出。收入15777.82元，支出2170.25元，盈余13607.57元。具备较强的财务积累能力，建议进一步规划盈余资金的用途。\",\n  \"habit_report\": \"您的消费习惯表现出较强的理性消费倾向，支出占收入的比例较低。进一步分析，建议您：\\n1. **详细记录支出明细：** 了解具体消费构成，判断哪些是必要支出，哪些是非必要支出，为优化消费结构提供依据。\\n2. **关注消费类别占比：** 分析不同消费类别（如餐饮、娱乐、交通等）的占比，找出消费集中的领域，评估是否存在过度消费的风险。\\n3. **警惕冲动消费：** 即使盈余较多，仍需警惕冲动消费，避免不必要的支出。\\n4. **培养储蓄习惯：** 即使收入高，也要养成定期储蓄的习惯，为未来的财务目标做好准备。\",\n  \"tasks\": [\n    \"**制定详细的预算计划：** 根据收入和支出情况，制定下个月的详细预算计划，包括各项支出的上限，确保财务状况可控。\",\n    \"**优化支出结构：** 仔细分析支出明细，找出可以削减的非必要支出，例如减少不必要的娱乐消费或餐饮开支。\",\n    \"**建立应急基金：** 将部分盈余资金存入应急基金，以备不时之需，建议金额为3-6个月的生活费。\",\n    \"**进行投资理财：** 考虑将部分盈余资金用于投资理财，例如购买基金、股票或债券，以实现资产增值。投资前请充分了解风险。\",\n    \"**设定财务目标：** 设定短期的和长期的财务目标，例如购买房产、退休规划等，并制定相应的储蓄和投资计划。\",\n    \"**学习理财知识：** 通过阅读书籍、参加课程或咨询专业人士，不断学习理财知识，提高理财能力。\",\n    \"**定期回顾财务状况：** 每月定期回顾财务状况，评估预算执行情况，并根据实际情况进行调整，确保财务目标能够顺利实现。\"\n  ]\n}\n```",
+  "status": "success",
+  "usage": {
+    "prompt_tokens": 115,
+    "completion_tokens": 510,
+    "total_tokens": 625
+  },
+  "latency_ms": 7100
+}</pre>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="stats-panel">
+        <h2>📊 会话统计</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-label">总步骤数</span>
+                <span class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">总 Token</span>
+                <span class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">总成本</span>
+                <span class="stat-value">$0.0000</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">会话时长</span>
+                <span class="stat-value">8.6s</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">模型调用次数</span>
+                <span class="stat-value">0</span>
+            </div>
+        </div>
+
+        <h3>🔧 工具调用统计</h3>
+        <table class="tool-stats">
+            <tr><th>工具名称</th><th>调用次数</th></tr>
+            <tr><td colspan="2">无工具调用</td></tr>
+        </table>
+
+        
+    </div>
+
+    <script>
+        function toggleDetails(id) {
+            const el = document.getElementById(id);
+            if (el.style.display === 'none' || el.style.display === '') {
+                el.style.display = 'block';
+            } else {
+                el.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+# 后端基础框架
+fastapi
+uvicorn
+python-multipart    # 用于处理前端上传的文件 (CSV/图片)
+
+# 数据分析
+pandas
+
+# AI Agent 与 LLM
+google-generativeai        # 2026 年最新的 Gemini SDK
+hello-agents        # 你指定的 Agent 框架
+python-dotenv
+
+# 功能组件
+plyer               # 实现电脑桌面通知 (Desktop Notification)
